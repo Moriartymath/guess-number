@@ -2,19 +2,19 @@ import { Button, ButtonProps, View } from "react-native";
 
 interface CustomButtonProps extends ButtonProps {
   title: string;
-  className?: string;
+  classContainer?: string;
   disabled?: boolean;
 }
 
 function CustomButton({
   title,
-  className = "",
+  classContainer = "",
   disabled = false,
   ...props
 }: CustomButtonProps) {
   return (
-    <View className={"p-2 border-2 border-white" + className}>
-      <Button title={title} {...props} disabled={disabled} />
+    <View className={"p-1 border-2 border-white" + " " + classContainer}>
+      <Button title={title} color={"white"} {...props} disabled={disabled} />
     </View>
   );
 }
