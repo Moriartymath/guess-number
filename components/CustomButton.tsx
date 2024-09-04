@@ -13,7 +13,7 @@ function CustomButton({
   ...props
 }: CustomButtonProps) {
   return (
-    <View className={"p-1 border-2 border-white" + " " + classContainer}>
+    <View className={"p-2 border-2 border-white" + " " + classContainer}>
       <Button title={title} color={"white"} {...props} disabled={disabled} />
     </View>
   );

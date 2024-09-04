@@ -1,9 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { StatusBar, StyleSheet } from "react-native";
 import Home from "./screens/home/Home";
+import Layout from "./screens/layout/Layout";
+import { KeyboardProvider } from "./contexts/KeyboardContext";
+import { InputProvider } from "./contexts/InputContext";
 
 export default function App() {
-  return <Home />;
+  return (
+    <>
+      <InputProvider>
+        <KeyboardProvider>
+          <Layout />
+        </KeyboardProvider>
+      </InputProvider>
+      <StatusBar barStyle={"light-content"} />
+    </>
+  );
 }
 
 const styles = StyleSheet.create({

@@ -1,18 +1,27 @@
 import { Text, View } from "react-native";
+import { useKeyboard } from "../contexts/KeyboardContext";
 
-type GuessTitleProps = {
-  isOpen: boolean;
-};
+function GuessTitle({
+  text,
+  classString,
+  textClass,
+}: {
+  text: string;
+  classString?: string;
+  textClass?: string;
+}) {
+  const { isOpen } = useKeyboard();
 
-function GuessTitle({ isOpen }: GuessTitleProps) {
   return (
     <View
-      className={`flex w-2/3 p-8 border-white border-4 space-y-12 mb-10 ${
+      className={`flex w-5/6 p-6 border-white border-4 space-y-12 mb-10 ${classString}  ${
         isOpen ? "-translate-y-12" : ""
       }`}
     >
-      <Text className={"text-2xl text-white text-center capitalize font-bold"}>
-        Guess my number
+      <Text
+        className={`text-2xl text-white text-center capitalize font-bold  ${textClass}`}
+      >
+        {text}
       </Text>
     </View>
   );
